@@ -43,11 +43,11 @@ Returns the hexadecimal notation of 3 given values - R, G, B
 
 `valToBaseNotTen(val, base)`  
 
-Returns the base *base* of value *val*   
+Returns the base **base** of value **val**   
 
 `valInBaseToDec(value, base)`  
 
-Returns the value *value* that is in base *base* to decimal  
+Returns the value **value** that is in base **base** to decimal  
 
 `isPrime(int)`  
 
