@@ -37,7 +37,7 @@ function factorial(n) {
         }
     }
 }
-// Get the highest number in an array
+// Get the highest number in an array.
 Array.prototype.max = function() {
     for(var i = 0; i < this.length; i++) {
         if(typeof this[i] != "number") {
@@ -47,7 +47,7 @@ Array.prototype.max = function() {
     eval("var maxed = Math.max(" + this + ")");
     return maxed;
 }
-// Get the smallest number in an array
+// Get the smallest number in an array.
 Array.prototype.min = function() {
     for(var i = 0; i < this.length; i++) {
         if(typeof this[i] != "number") {
@@ -57,7 +57,7 @@ Array.prototype.min = function() {
     eval("var minimized = Math.min(" + this + ")");
     return minimized;
 }
-// Sort an array from the smallest number to the biggest number
+// Sort an array from the smallest number to the biggest number.
 Array.prototype.sortDown = function() {
     for(var i = 0; i < this.length; i++) {
         if(typeof this[i] != "number") {
@@ -73,7 +73,7 @@ Array.prototype.sortDown = function() {
     }
     return finalArr;
 }
-// Sort an array from the biggest number to the smallest number
+// Sort an array from the biggest number to the smallest number.
 Array.prototype.sortUp = function() {
     for(var i = 0; i < this.length; i++) {
         if(typeof this[i] != "number") {
@@ -89,7 +89,7 @@ Array.prototype.sortUp = function() {
     }
     return finalArr;
 }
-// Get median of an array
+// Get median of an array.
 Array.prototype.median = function() {
     for(var j = 0; j < this.length; j++) {
         if(typeof this[j] != "number") {
@@ -102,4 +102,73 @@ Array.prototype.median = function() {
     } else {
         return (helper[Math.floor(helper.length / 2)] + helper[Math.ceil(helper.length / 2) - 1]) / 2;
     }
+}
+// Turn RGB to hexadecimal notation.
+function rgbToHex(red, green, blue) {
+    if(red > 255 || red < 0 || isNan(red) || blue > 255 || blue < 0 || isNan(blue) || green > 255 || green < 0 || isNan(green)) {
+        throw new Error("Couldn't calculate Hexadcimal Notation of values entered");
+    }
+    var hRed = red.toString(16);
+    var hBlue = blue.toString(16);
+    var hGreen = green.toString(16);
+    var str = "#" + hRed + hBlue + hGreen;
+    str = str.toUpperCase();
+    return str;
+}
+// Turn a given a number to a given base.
+function valToBaseNotTen(val, base) {
+    if(isNaN(val) || isNan(base)) {
+        throw new Error("Couldn't calculate the given base form of the values entered");
+    }
+    return val.toString(base);
+}
+// Turn a given number of a given base to decimal.
+function valInBaseToDec(val, baseNotTen) {
+    if(isNaN(val) || isNan(baseNotTen)) {
+        throw new Error("Couldn't calculate the given base form of the values entered");
+    }
+    return parseInt(val.toString(), baseNotTen);
+}
+// Decide weather a number is prime or not.
+function isPrime(num) {
+    if(isNaN(num)) {
+        throw new Error("Couldn't calculate if the given value of type " + typeof num + " is prime or not")
+    }
+    var primes = [];
+    var divisors = [];
+    for(var i = 2; i <= num; i++) {
+         if(num % i === 0) {
+            divisors.push(i);
+         }
+    }
+    if(divisors.length == 1) {
+         return true;
+    } else {
+         return false;
+    }
+}
+// Return an array of all the factors of a given number.
+function factorize(n) {
+    if(isNaN(n)) {
+        throw new Error("Given value is not a number. (" + typeof n + ").")
+    }
+    if(isPrime(n)) {
+        return n;
+    }
+    var arr = [];
+    for(var i = 2; i <= n; i++) {
+        if(n % i == 0 && isPrime(i)) {
+            arr.push(i);
+            break;
+        }
+    }
+    arr.push(n / arr[0]);
+    if(!isPrime(arr[arr.length - 1])) {
+        arr.push(factorize(arr[arr.length - 1]));
+        arr.splice(arr.length - 2, 1);
+    } 
+    var final = arr.reduce(function(a, b) {
+        return a.concat(b);
+    }, [])
+    return final;
 }
