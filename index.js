@@ -43,4 +43,41 @@ var Gat =
 			}
 			return result;
 		}
+		Complex: (a, b) => {
+			this.x = a;
+			this.y = b;
+			this.multiply = function(c) {
+				return new Complex(((this.x * c.x) - (this.y * c.y)), ((this.x * c.y) + (this.y * c.x)));
+			}
+			this.add = function(c) {
+				return new Complex(this.x + c.x, this.y + c.y);
+			}
+			this.multiplyByN = function(n) {
+				return new Complex(this.x * n, this.y * n);
+			}
+			this.subtract = function(c) {
+				return this.add(new Complex(-c.x, -c.y));
+			}
+			this.divideBy = function(cz) {
+				var a = this.x;
+				var b = this.y;
+				var c = cz.x;
+				var d = cz.y;
+				var denom = ((c * c) + (d * d));
+				var re = (((a * c) + (b * d)) / denom);
+				var im = (((b * c) - (a * d)) / denom);
+				return new Complex(re, im);
+			}
+			this.toThePowerOf = function(n) {
+				var c = this;
+				for (var i = 1; i < n; i++) {
+					c = c.multiply(c);
+				}
+				return c;
+			}
+			this.getReciprocal = function() {
+				var one = new Complex(1, 0);
+				return (one.divideBy(this));
+			}
+		}
 	}
