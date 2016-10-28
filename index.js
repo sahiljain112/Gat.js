@@ -42,7 +42,7 @@ var Gat =
 				result *= i;
 			}
 			return result;
-		}
+		},
 		Complex: (a, b) => {
 			this.x = a;
 			this.y = b;
@@ -79,7 +79,7 @@ var Gat =
 				var one = new Complex(1, 0);
 				return (one.divideBy(this));
 			}
-		}
+		},
 		isPrime: (n) => {
 			if (isNaN(n) || !isFinite(n) || n % 1 || n < 2) {
 				return false;
@@ -100,5 +100,24 @@ var Gat =
 				}
 			}
 			return true;
+		},
+		sigma: (start, end, func) => {
+			var res = 0;
+			for (var i = start; i <= end; i++) {
+				res += func(i);
+			}
+			return res;
+		},
+		quadratic: (a, b, c) => {
+			var x1 = (((-b) + Math.sqrt((b * b) - (4 * a * c))) / (2 * a));
+			var x2 = (((-b) - Math.sqrt((b * b) - (4 * a * c))) / (2 * a));
+			var result = [];
+			if (!isNaN(x1)) {
+				result.push(x1);
+			}
+			if (!isNaN(x2)) {
+				result.push(x2);
+			}
+			return result;
 		}
 	}
