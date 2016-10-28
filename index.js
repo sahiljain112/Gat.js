@@ -1,7 +1,9 @@
 var Gat =
 	module.exports = {
-		sum: () => {
+		sum: (...args) => {
 			var result = 0;
+			var err = new Error("One of the arguments is Invalid.");
+			for (val of args) {
 				switch (typeof val) {
 					case "number":
 						result += val;
@@ -10,6 +12,8 @@ var Gat =
 						var num = parseInt(val);
 						if (!isNaN(num)) {
 							result += num;
+						} else {
+							throw err;
 						}
 						break;
 					case "object":
@@ -20,11 +24,16 @@ var Gat =
 						}
 						break;
 					default:
+						throw err;
 				}
 			}
+			return result;
 		},
 		average: (arr) => {
-			var result = Gat.sum(arr) / arr.length;
+			if (!Array.isArray(arr)) {
+				throw new Error('Input is not an array.');
+			}
+			var result = Gat.sum(arr) / [].concat.apply([], arr).length;
 			return result;
 		},
 		factorial: (n) => {

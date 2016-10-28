@@ -6,6 +6,14 @@ To use the library, download the Gat.js file to your computer and link it to you
 
 List of methods:
 
-`Gat.sum(arr);`  
+`Gat.sum(args);`  
 
-Returns the sum of all numbers in a given array.
+Sums all the arguments passed. You can pass arrays, strings, and single numbers.
+
+`Gat.average(arr);`
+
+Returns the average of the array.
+
+`Gat.factorial(n);`
+
+Returns the factorial of n.
