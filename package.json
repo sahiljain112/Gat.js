@@ -1,0 +1,26 @@
+{
+  "name": "gat.js",
+  "version": "0.1.0",
+  "description": "Math library with various functions",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orangalo/Gat.js.git"
+  },
+  "keywords": [
+    "math",
+    "javascript"
+  ],
+  "author": "Orangalo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Orangalo/Gat.js/issues"
+  },
+  "homepage": "https://github.com/Orangalo/Gat.js#readme"
+}
