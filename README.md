@@ -33,3 +33,7 @@ Sum (∑) from i = start to end, running on func.
 `Gat.quadratic(a, b, c);`
 
 Get real solutions for (ax^2 + bx + c = 0).
+
+`Gat.cbrt(a);`
+
+Get cube root of a.
