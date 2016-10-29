@@ -37,3 +37,7 @@ Get real solutions for (ax^2 + bx + c = 0).
 `Gat.cbrt(a);`
 
 Get cube root of a.
+
+`Gat.gcd(a, b);`
+
+Get greatest common denominator of a, b.
