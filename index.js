@@ -119,5 +119,8 @@ var Gat =
 				result.push(x2);
 			}
 			return result;
+		},
+		cbrt: (n) => {
+			return Math.pow(n, 1 / 3);
 		}
 	}
