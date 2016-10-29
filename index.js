@@ -43,20 +43,20 @@ var Gat =
 			}
 			return result;
 		},
-		Complex: (a, b) => {
+		Complex: function(a, b) {
 			this.x = a;
 			this.y = b;
 			this.multiply = function(c) {
-				return new Complex(((this.x * c.x) - (this.y * c.y)), ((this.x * c.y) + (this.y * c.x)));
+				return new Gat.Complex(((this.x * c.x) - (this.y * c.y)), ((this.x * c.y) + (this.y * c.x)));
 			}
 			this.add = function(c) {
-				return new Complex(this.x + c.x, this.y + c.y);
+				return new Gat.Complex(this.x + c.x, this.y + c.y);
 			}
 			this.multiplyByN = function(n) {
-				return new Complex(this.x * n, this.y * n);
+				return new Gat.Complex(this.x * n, this.y * n);
 			}
 			this.subtract = function(c) {
-				return this.add(new Complex(-c.x, -c.y));
+				return this.add(new Gat.Complex(-c.x, -c.y));
 			}
 			this.divideBy = function(cz) {
 				var a = this.x;
@@ -66,7 +66,7 @@ var Gat =
 				var denom = ((c * c) + (d * d));
 				var re = (((a * c) + (b * d)) / denom);
 				var im = (((b * c) - (a * d)) / denom);
-				return new Complex(re, im);
+				return new Gat.Complex(re, im);
 			}
 			this.toThePowerOf = function(n) {
 				var c = this;
@@ -76,7 +76,7 @@ var Gat =
 				return c;
 			}
 			this.getReciprocal = function() {
-				var one = new Complex(1, 0);
+				var one = new Gat.Complex(1, 0);
 				return (one.divideBy(this));
 			}
 		},
