@@ -122,5 +122,14 @@ var Gat =
 		},
 		cbrt: (n) => {
 			return Math.pow(n, 1 / 3);
+		},
+		gcd: (a, b) => {
+			var t;
+			while (b != 0) {
+				t = b;
+				b = a % b;
+				a = t;
+			}
+			return a;
 		}
 	}
