@@ -131,5 +131,13 @@ var Gat =
 				a = t;
 			}
 			return a;
+		},
+		totient: (n) => {
+			var res = n;
+			for(var i = 2 ; i <= n/2 ; i++){
+				if (n % i == 0 && isPrime(i))
+					res = (res * (i - 1))/i;
+			}
+			return res;
 		}
 	}
